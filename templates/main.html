@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{{ url_for('static', path='css/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='css/fonts.css') }}" rel="stylesheet">
+    
+    <script src="{{ url_for('static', path='js/predict.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <title>Movie revenue predictor</title>
+</head>
+<body>
+    <div class="lobster-two-regular-italic main-title">Predict Revenue For a Movie</div>
+
+    <div class="medium-text-parameter text-parameter">
+        <p class="parameter-name mukta-vaani-extrabold">Title</p>
+        <input type="text" id="movie-title" class="medium-text-input text-input mukta-vaani-regular">
+    </div>    
+    <div class="small-text-parameter text-parameter">
+        <p class="parameter-name mukta-vaani-bold">Release Year</p>
+        <input type="text" id="movie-release-year" class="small-text-input text-input mukta-vaani-regular">
+    </div> 
+    <div class="small-text-parameter text-parameter">
+        <p class="parameter-name mukta-vaani-bold">Runtime</p>
+        <input type="text" id="movie-runtime" title="Movie runtime in minutes."class="small-text-input text-input mukta-vaani-regular">
+    </div>   
+    <div class="small-text-parameter text-parameter">
+        <p class="parameter-name mukta-vaani-bold">Budget</p>
+        <input type="text" id="movie-budget" title="Movie budget in dollars." class="small-text-input text-input mukta-vaani-regular">
+    </div>  
+    <div class="medium-text-parameter text-parameter">
+        <p class="parameter-name mukta-vaani-extrabold">Genres</p>
+        <input type="text" id="movie-genres" title="Should be separated by commas. Available genres: Action, Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Fantasy, Foreign, History, Horror, Music, Mystery, Romance, Science Fiction, TV Movie, Thriller, War, Western" class="medium-text-input text-input mukta-vaani-regular">
+    </div>
+    <div class="medium-text-parameter text-parameter">
+        <p class="parameter-name mukta-vaani-bold">Production Countries</p>
+        <input type="text" id="movie-production-countries" title="Should be separated by commas." class="medium-text-input text-input mukta-vaani-regular">
+    </div> 
+    <div class="small-text-parameter text-parameter">
+        <p class="parameter-name mukta-vaani-bold">Original Language</p>
+        <input type="text" id="movie-original-language" class="small-text-input text-input mukta-vaani-regular">
+    </div> 
+    <div class="small-text-parameter text-parameter">
+        <p class="parameter-name mukta-vaani-bold">Popularity</p>
+        <input type="text" id="movie-popularity" title="Popularity index 0-100." class="small-text-input text-input mukta-vaani-regular">
+    </div> 
+    <div class="large-text-parameter text-parameter">
+        <p class="parameter-name mukta-vaani-bold">Overview</p>
+        <textarea id="movie-overview" cols="40" rows="5" title="Movie description. You can include any keywords or plot details that are relevant here." class="large-text-input text-input mukta-vaani-regular"></textarea>
+    </div>
+
+    <button class="predict-button mukta-vaani-regular" onclick="predictRevenue()">Predict Revenue</button>
+
+    <div class="model-prediction mukta-vaani-bold" id="model-prediction">500000$</div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+</body>
+</html>

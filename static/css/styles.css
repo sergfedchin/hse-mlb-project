@@ -1,0 +1,101 @@
+  body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: 
+        radial-gradient(circle at 25% top, #eecda3, #ef629f),
+        radial-gradient(circle at 85% bottom, #eecda3, transparent);
+  }
+
+  .main-title {
+    width: 1000px;
+    font-size: 90px;
+    position: relative;
+    left: 50%;
+    margin-top: 80px;
+    margin-bottom: 110px;
+    transform: translate(-50%, 0);
+    color: white;
+}
+
+.text-parameter {
+    position: relative;
+    align-items: center;
+    margin: 40px;
+    margin-top: 10px;
+}
+
+.small-text-parameter {
+    display: inline-block;
+}
+
+.medium-text-parameter {
+    display: block;
+}
+
+.text-input {
+    height: 35px;
+    margin-top: -10px;
+    border: none;
+    border-bottom: #ffffffdd solid 1.5px;
+    background: transparent;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    outline: none;
+}
+
+.large-text-input {
+    width: 400px;
+    height: 200px;
+    font-size: 23px;
+}
+
+.medium-text-input {
+    width: 400px;
+}
+
+.small-text-input {
+    width: 150px;
+}
+
+.parameter-name {
+    cursor: default;
+    color: #ffffffdd;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.parameter-name::selection {
+    background: transparent;
+}
+
+.predict-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 15px;
+    width: 500px;
+    height: 60px;
+    background: transparent;
+    border: white solid 1.5px;
+    color: white;
+    font-size: 25px;
+    line-height: 0.6;
+    text-align: center;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.predict-button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #ee799f;
+}
+
+.model-prediction {
+    color: white;
+    margin: 20px;
+    font-size: 22px;
+    display: none;
+}

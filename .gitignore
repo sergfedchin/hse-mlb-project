@@ -1,3 +1,4 @@
 data/*
 !data/.gitignore
 .venv/
+__*__
