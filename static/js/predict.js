@@ -24,7 +24,7 @@ function predictRevenue() {
                                'overview': overview}),
         success: function (data) {
             var modelPrediction = document.getElementById('model-prediction');
-            modelPrediction.innerHTML = "Predicted revenue: $" + data.revenue;
+            modelPrediction.innerHTML = "Predicted revenue: " + data.revenue;
             modelPrediction.style.display = 'block';
         },
         error: function(xhr, status, error) {
