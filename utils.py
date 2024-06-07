@@ -8,7 +8,7 @@ import numpy as np
 
 nltk.download('stopwords')
 CLASS_BORDERS = [10_000, 100_000, 1_000_000, 10_000_000, 50_000_000, 100_000_000, 500_000_000, 1_000_000_000]
-CLASS_BORDERS_STR = ["10.000", "100.000", "1.000.000", "10.000.000", "50.000.000", "100.000.000", "500.000.000", "1.000.000.000"]
+CLASS_BORDERS_STR = ["10.000", "100.000", "1.000.000", "10.000.000", "50.000.000", "100.000.000", "500.000.000", "1.000.000.000", "inf"]
 
 
 def preprocess_text(text: str) -> str:
@@ -23,7 +23,7 @@ def classify_revenue(revenue: int) -> int:
 
 
 def declassify_revenue(i: int) -> str:
-    return f"${CLASS_BORDERS_STR[i - 1] if i > 0 else 0} - ${CLASS_BORDERS_STR[i] if i < 8 else np.inf}"
+    return f"${CLASS_BORDERS_STR[i - 1] if i > 0 else 0} - ${CLASS_BORDERS_STR[i]}"
 
 
 if __name__ == '__main__':
