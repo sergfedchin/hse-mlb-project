@@ -8,6 +8,8 @@ from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
 import pycountry
+import pandas as pd
+import numpy as np
 
 
 class MovieInfo(BaseModel):
@@ -83,12 +85,26 @@ async def predictRevenue(request: Request,
     except Exception:
         return JSONResponse(content={"error": "Incorrect original language."}, status_code=500)
 
-    with open(os.path.join('data', 'available_values.pkl'), 'r') as f:
-        all_genres, all_languages, all_countries = pickle.load(f)  # TODO: fails for some reason, investigate
+    with open(os.path.join('data', 'supported_values.pkl'), 'rb') as f:
+        all_genres, all_languages, all_countries = pickle.load(f)
 
-    print(all_genres)
-    # TODO: check that genres, languages and countries have some matches with our available ones.
+    genres = list(set(genres) & set(all_genres))
+    if len(genres) == 0:
+        return JSONResponse(content={"error": "No supported genres were found."}, status_code=500)
+
+    if original_language not in all_languages:
+        return JSONResponse(content={"error": f"Language '{form.original_language}' not supported."}, status_code=500)
+
+    production_countries = list(set(production_countries) & set(all_countries))
+    if len(production_countries) == 0:
+        return JSONResponse(content={"error": "No supported production countries were found."}, status_code=500)
+
     print(release_year, runtime, budget, popularity, genres, production_countries, original_language)
+
+    with open(os.path.join('data', 'dataframe_header.csv')) as f:
+        df = pd.read_csv(f)
+    df.drop(columns=['Unnamed: 0'])
+    print(np.array(df.columns))
     # TODO: configure the input vector and run model with the data.
     # Then write its predicted revenue range as str to 'prediction' variable.
 
